@@ -8,7 +8,7 @@ from io import BytesIO
 st.set_page_config(page_title="Perfect Pixel Art Generator", layout="wide")
 
 # App title
-st.title("🎨 Perfect Pixel Art Generator")
+st.title("Perfect Pixel Art Generator")
 st.markdown("Create crisp, perfect pixel art from any image!")
 
 # Image uploader
@@ -34,7 +34,7 @@ if uploaded_file is not None:
     orig_height, orig_width = img_array.shape[:2]
     
     # Pixelation parameters
-    st.subheader("🎛️ Pixelation Controls")
+    st.subheader("Pixelation Controls")
     
     # Two modes: Simple and Advanced
     mode = st.radio("Choose control mode:", ["Simple Mode", "Advanced Mode"], horizontal=True)
@@ -100,7 +100,7 @@ if uploaded_file is not None:
             display_height = min(pixel_height * pixel_size, 1300)
     
     # Show current settings
-    st.info(f"🎯 Pixel Art: {pixel_width}×{pixel_height} pixels | Display: {display_width}×{display_height} pixels")
+    st.info(f"Pixel Art: {pixel_width}×{pixel_height} pixels | Display: {display_width}×{display_height} pixels")
     
     # Perform perfect pixelation
     def create_perfect_pixel_art(img, target_width, target_height, display_width, display_height):
@@ -132,7 +132,7 @@ if uploaded_file is not None:
         )
     
     # Download options
-    st.subheader("💾 Download Options")
+    st.subheader(" Download Options")
     
     col_d1, col_d2 = st.columns(2)
     
@@ -144,7 +144,7 @@ if uploaded_file is not None:
         byte_original = buf_original.getvalue()
         
         st.download_button(
-            label=f"📱 Download Pixel Art ({pixel_width}×{pixel_height})",
+            label=f" Download Pixel Art ({pixel_width}×{pixel_height})",
             data=byte_original,
             file_name=f"pixel_art_{pixel_width}x{pixel_height}.png",
             mime="image/png",
@@ -159,7 +159,7 @@ if uploaded_file is not None:
         byte_display = buf_display.getvalue()
         
         st.download_button(
-            label=f"🖼️ Download Display Version ({display_width}×{display_height})",
+            label=f"Download Display Version ({display_width}×{display_height})",
             data=byte_display,
             file_name=f"pixel_art_display_{display_width}x{display_height}.png",
             mime="image/png",
@@ -167,7 +167,7 @@ if uploaded_file is not None:
         )
     
     # Show some stats
-    st.subheader("📊 Image Statistics")
+    st.subheader("Image Statistics")
     col_s1, col_s2, col_s3 = st.columns(3)
     
     with col_s1:
@@ -179,10 +179,10 @@ if uploaded_file is not None:
         st.metric("Size Reduction", f"{reduction_factor:.1f}x smaller")
 
 else:
-    st.info("⬆️ Please upload an image to start creating pixel art!")
+    st.info("Please upload an image to start creating pixel art!")
     
     # Show some example information
-    st.subheader("💡 How it works:")
+    st.subheader(" How it works:")
     st.markdown("""
     1. **Upload** any image (JPG, PNG)
     2. **Choose** your desired pixel art dimensions (e.g., 90×120 pixels)
